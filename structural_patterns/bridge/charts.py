@@ -1,4 +1,3 @@
-"""Factory Method"""
 import os
 from abc import ABC, abstractmethod
 
@@ -36,16 +35,3 @@ class LineChart(Chart):
         if not os.path.isdir(directory_path):
             os.makedirs(directory_path)
         plot.savefig(file_path)
-
-
-def load_data_from_csv(data_path: str) -> pd.DataFrame:
-    """Method loads data"""
-    data = pd.read_csv(data_path)
-    return data
-
-
-if __name__ == "__main__":
-    input_data = load_data_from_csv("creational_patterns/factory_method/data.csv")
-    line_chart = LineChart()
-    sample_plot = line_chart.draw_plot(input_data, "sample title", "sample xlabel", "sample ylabel")
-    line_chart.save_plot(sample_plot, "plots", "sample_plot")
