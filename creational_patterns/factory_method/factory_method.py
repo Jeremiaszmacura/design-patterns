@@ -14,7 +14,7 @@ class Chart(ABC):
         """Method draws plot"""
 
     @abstractmethod
-    def save_plot(self, plot: plt.Figure, path: str, plot_name: str):
+    def save_plot(self, plot: plt.Figure, path: str, plot_name: str) -> None:
         """Method saves plot"""
 
 
@@ -29,7 +29,7 @@ class LineChart(Chart):
         ax.plot(data["AAPL_x"], data["AAPL_y"])
         return fig
 
-    def save_plot(self, plot: plt.Figure, path: str, plot_name: str):
+    def save_plot(self, plot: plt.Figure, path: str, plot_name: str) -> None:
         current_path = os.path.dirname(os.path.abspath(__file__))
         directory_path = os.path.join(current_path, path)
         file_path = os.path.join(directory_path, plot_name)
